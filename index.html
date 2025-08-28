@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi! My name is Chinne Bugtong</title>    
+  <style>
+    body {
+      transition: background-image 0.5s ease;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #mainHeader {
+      color: blue;
+      padding: 20px;
+      text-align: center;   
+    }
+
+    .intro {
+      text-align: center;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: auto;
+      border-radius: 50%;
+      display: block;
+      margin: 10px auto;
+    }
+
+    #content-div ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    #content-div h1, #content-div h2 {
+      text-align: center;
+    }
+
+    .bg-button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .bg-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="mainHeader">I'm Back!</h1>
+  <p class="intro">Hi! My name is <i>Chinne Bugtong</i>.</p>
+  <img src="cat.gif" alt="Chinne Bugtong" class="profile-img">
+
+  <div id="content-div">
+    <h2>Class Expectations</h2>
+    <ul>
+      <li>Collaboration.</li>
+      <li>Manage time effectively.</li>
+      <li>Embrace continuous learning.</li>
+    </ul>
+
+    <h2>Subject Expectations</h2>
+    <ul>
+      <li>Integrate with external services</li>
+      <li>Develop advanced web applications</li>
+      <li>Evaluate security and ethics</li>
+    </ul>
+
+    <h2>Future PHP Projects</h2>
+    <ul>
+      <li>School Security System.</li>
+      <li>Chatbot System for Students.</li>
+      <li>Blogs</li>
+    </ul>
+  </div>
+
+  <button class="bg-button" id="bgBtn">Change Background</button>
+
+  <script>
+    const backgrounds = [
+      { src: "bg1.gif", name: "blue" },
+      { src: "bg2.gif", name: "water" },
+      { src: "bg3.gif", name: "petals" },
+      { src: "bg4.gif", name: "clouds" }
+    ];
+    let currentIndex = 0;
+    const btn = document.getElementById('bgBtn');
+
+    function setBackground(index) {
+      document.body.style.opacity = 0.7;
+      setTimeout(() => {
+        document.body.style.backgroundImage = `url('${backgrounds[index].src}')`;
+        document.body.style.opacity = 1;
+      }, 300);
+      btn.textContent = `Next: ${backgrounds[(index + 1) % backgrounds.length].name}`;
+    }
+
+    function changeBackground() {
+      currentIndex = (currentIndex + 1) % backgrounds.length;
+      setBackground(currentIndex);
+    }
+
+    btn.addEventListener('click', changeBackground);
+
+    // Set initial background and button text
+    setBackground(currentIndex);
+  </script>
+</body>
+</html>
